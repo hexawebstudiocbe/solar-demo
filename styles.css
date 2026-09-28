@@ -672,6 +672,33 @@ footer {
     flex-direction: column;
 }
 
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Hide slide backgrounds globally now that we have videos for all devices */
+.hero .slide {
+    background-image: none !important;
+    background-color: transparent !important;
+}
+
+@media (max-width: 767px) {
+    .d-none-mobile {
+        display: none !important;
+    }
+}
+@media (min-width: 768px) {
+    .d-none-desktop {
+        display: none !important;
+    }
+}
+
 .hero-carousel {
     position: absolute;
     top: 0;
@@ -993,4 +1020,126 @@ footer {
     color: var(--text-muted);
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
+}
+
+/* Additional Responsive Fixes */
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    /* Reset alternating layout on mobile */
+    .about-grid[style*="direction: rtl;"] {
+        direction: ltr !important;
+    }
+    .service-detail-content, .service-detail-img {
+        direction: ltr !important;
+    }
+    
+    .page-header {
+        padding: 120px 0 60px;
+    }
+    
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content {
+        padding-top: 60px;
+    }
+    
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    
+    .floating-social {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .floating-social a {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+    }
+    
+    .hero-carousel {
+        position: relative;
+        height: 75vh;
+    }
+    
+    .static-hero-stats {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        background: var(--dark-bg);
+        padding: 3rem 0;
+        z-index: 10;
+        border-bottom: 1px solid var(--border);
+    }
+    
+    .stats-container {
+        padding-top: 0;
+        border-top: none;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .carousel-indicators {
+        bottom: 2rem;
+    }
+    
+    .section {
+        padding: 4rem 0;
+    }
+    
+    .carousel-control {
+        display: none !important;
+    }
+    
+    .service-detail-img img, .intro-img, .about-img img {
+        margin-bottom: 1rem;
+    }
+    
+    /* Fix for dropdown menu on mobile */
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background: transparent;
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        display: none;
+        text-align: center;
+    }
+    
+    .dropdown:hover .dropdown-menu,
+    .dropdown:active .dropdown-menu {
+        display: block;
+    }
+    
+    .dropdown-menu li {
+        padding: 0.5rem 0;
+    }
 }
